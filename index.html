@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .card {
+            border: none;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+        }
+
+        .page-link {
+            cursor: pointer;
+        }
+
+        .page-item.disabled .page-link {
+            cursor: default;
+        }
+
+        #event-list, #upcoming-events {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .upcoming-event-card {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Event Registration</h1>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Create Event</h5>
+                        <form id="event-form">
+                            <div class="form-group">
+                                <label for="event-name">Event Name</label>
+                                <input type="text" class="form-control" id="event-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="event-date">Event Date</label>
+                                <input type="date" class="form-control" id="event-date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="event-time">Event Time</label>
+                                <input type="time" class="form-control" id="event-time" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add Event</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Upcoming Events Within 10 Minutes</h5>
+                        <div id="upcoming-events"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Registered Events</h5>
+                        <div id="event-controls" class="mb-3">
+                            <input type="text" id="search" placeholder="Search events" class="form-control">
+                            <select id="sort" class="form-control mt-2" title="sort">
+                                <option value="name">Sort by Name</option>
+                                <option value="date">Sort by Date</option>
+                            </select>
+                        </div>
+                        <ul id="event-list" class="list-group"></ul>
+                        <nav>
+                            <ul class="pagination mt-3">
+                                <li class="page-item"><a class="page-link" href="#" id="prev-page">Previous</a></li>
+                                <li class="page-item"><a class="page-link" href="#" id="next-page">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
